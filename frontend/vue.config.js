@@ -1,20 +1,20 @@
 const BundleTracker = require("webpack-bundle-tracker");
 
 module.exports = {
-    baseUrl: "http://0.0.0.0:8080/",
+    publicPath: "http://0.0.0.0:8080/",
     outputDir: './dist/',
 
     chainWebpack: config => {
 
         config.optimization
-            .splitChunks(false)
+            .splitChunks(false);
 
         config
             .plugin('BundleTracker')
-            .use(BundleTracker, [{filename: '../frontend/webpack-stats.json'}])
+            .use(BundleTracker, [{filename: '../frontend/webpack-stats.json'}]);
 
         config.resolve.alias
-            .set('__STATIC__', 'static')
+            .set('__STATIC__', 'static');
 
         config.devServer
             .public('http://0.0.0.0:8080')
